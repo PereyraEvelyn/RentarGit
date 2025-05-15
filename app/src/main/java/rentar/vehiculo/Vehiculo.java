@@ -1,4 +1,4 @@
-package rentar;
+package rentar.vehiculo;
 
 public abstract class Vehiculo {
     private String patente;
