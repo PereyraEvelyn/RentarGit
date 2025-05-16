@@ -2,7 +2,7 @@ package rentar.vehiculo;
 
 import java.math.BigDecimal;
 
-public class Vehiculo {
+public abstract class Vehiculo {
     private String patente;
     private double kilometraje;
     private Estado estado;
@@ -12,16 +12,6 @@ public class Vehiculo {
         Disponible, Rentado, EnMantenimiento;
     }
     
-    public Vehiculo(String patente, double kilometraje, Estado estado, ModeloVehiculo modelo) {
-        this.patente = patente;
-        this.kilometraje = kilometraje;
-        this.estado = estado;
-        this.modelo = modelo;
-    }
-
-
-
-
     @Override
     public boolean equals(Object obj){
         if(this == obj){ 
