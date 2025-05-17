@@ -1,42 +1,28 @@
 package rentar.vehiculo;
 
+import java.math.BigDecimal;
+
 public abstract class Vehiculo {
     private String patente;
-    private String marca;
-    private String modelo;
     private double kilometraje;
-    private int año;
     private Estado estado;
+    private ModeloVehiculo modelo;
 
-    public enum Estado {
-     Disponible, Rentado, EnMantenimiento;
+    public enum Estado{
+        Disponible, Rentado, EnMantenimiento;
     }
-     
-  
-    /*Getters 
-    public String getPatente() {
-        return patente;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public double getKilometraje() {
-        return kilometraje;
-    }
-
-    public int getAño() {
-        return año;
-    }
-
-    public Estado getEstado() {
-        return estado;
-    }*/
+    
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj){ 
+            return true;
+        }
+        if(obj == null || getClass() !=obj.getClass()){ 
+            return false;
+        }
+        Vehiculo vehiculo1 = (Vehiculo) obj;
+        return patente.equals(vehiculo1.patente);
+        }
 
     
 }
