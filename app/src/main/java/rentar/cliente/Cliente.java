@@ -28,7 +28,7 @@ public class Cliente{
         }
         if(obj == null || getClass() !=obj.getClass()){ 
             return false;
-        }
+        } 
         Cliente cliente1 = (Cliente) obj; 
         return dni.equals(cliente1.dni); //Compara por el dni
     }
