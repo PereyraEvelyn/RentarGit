@@ -1,4 +1,4 @@
-package rentar.cliente; 
+package rentar.reservas; 
 
 public class RegistroReservas {
 
