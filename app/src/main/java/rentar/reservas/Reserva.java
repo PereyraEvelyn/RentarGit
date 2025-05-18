@@ -1,6 +1,8 @@
-package rentar.cliente; 
+package rentar.reservas; 
 import java.time.LocalDate;
 import java.time.Period;
+
+import rentar.cliente.Cliente;
 import rentar.vehiculo.*;
 
 
