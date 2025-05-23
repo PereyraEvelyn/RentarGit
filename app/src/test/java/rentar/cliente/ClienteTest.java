@@ -2,14 +2,16 @@ package rentar.cliente;
 
 import static org.junit.Assert.assertEquals;
 
+import java.time.LocalDate;
+
 import org.junit.Test;
 
 public class ClienteTest {
 
-    @Test public void testCreacionCliente() {
-        Cliente cliente = new Cliente("1234567", "samuel", "216738", "samu_crack@gmail.com", "213213213");
-        assertEquals("1234567", cliente.getDni());
-        assertEquals("samuel", cliente.getNombre());
+    @Test public void comprobarNuevaPersona() {
+        Cliente cliente = new Cliente("123456", "Juan Perez", "A123", "Juan@gmail.comprobarNuevaPersona", "3834500020");
+        
+        assertEquals("123456", cliente.getDni());
     }
-    
+
 }

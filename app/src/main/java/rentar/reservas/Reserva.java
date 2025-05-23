@@ -44,12 +44,12 @@ public class Reserva {
     }
 
 
-     /* 
-  
-    // Getters y setters
+     
     public String getCodigoReserva() {
         return codigoReserva; 
     }
+    /* 
+    // Getters y setters
     public LocalDate getFechaInicio() {
      return fechaInicio; 
     }
