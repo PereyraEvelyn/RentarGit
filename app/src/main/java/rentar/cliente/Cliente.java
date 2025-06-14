@@ -1,7 +1,4 @@
 package rentar.cliente;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class Cliente{
     private String dni;
@@ -42,8 +39,23 @@ public class Cliente{
     public String getNombre() {
         return nombre;
     }
-    
 
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+
+    public String getLicenciaConducir() {
+        return licenciaConducir;
+    }
+    
+    
 
 
 

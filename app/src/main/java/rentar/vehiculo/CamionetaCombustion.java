@@ -1,6 +1,5 @@
-package main.java.rentar.vehiculo;
+package rentar.vehiculo;
 
-import rentar.vehiculo.*;
 
 public class CamionetaCombustion extends Vehiculo implements MotorACombustion {
      private double consumoCombustible;

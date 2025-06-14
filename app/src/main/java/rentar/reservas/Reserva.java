@@ -1,9 +1,5 @@
 package rentar.reservas; 
 import java.time.LocalDate;
-import java.time.Period;
-
-import rentar.cliente.Cliente;
-import rentar.vehiculo.*;
 
 
 public class Reserva {
@@ -11,15 +7,15 @@ public class Reserva {
     private LocalDate fechaInicio;
     private LocalDate fechaFin;
     private EstadoReserva estado;
-    private Cliente cliente;
-    private Vehiculo vehiculoAsociado;
+    //private Cliente cliente;
+    //private Vehiculo vehiculoAsociado;
 
-    public Reserva(String codigoReserva, LocalDate fechaInicio, LocalDate fechaFin, Vehiculo vehiculo, Cliente cliente) {
+    public Reserva(String codigoReserva, LocalDate fechaInicio, LocalDate fechaFin) {
         this.codigoReserva = codigoReserva;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
-        this.vehiculoAsociado = vehiculo;
-        this.cliente = cliente;
+        //this.vehiculoAsociado = vehiculo;
+        //this.cliente = cliente;
         this.estado = EstadoReserva.PENDIENTE;
     }
 
@@ -44,7 +40,7 @@ public class Reserva {
     }
 
 
-     /* 
+    
   
     // Getters y setters
     public String getCodigoReserva() {
@@ -59,11 +55,5 @@ public class Reserva {
     public EstadoReserva getEstado() {
      return estado; 
     }
-    public Vehiculo getVehiculo() { 
-    return vehiculo; 
-    }
-    public Cliente getCliente() { 
-    return cliente;
-    }
-    */
+
 }

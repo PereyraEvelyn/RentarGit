@@ -1,7 +1,4 @@
-
-package main.java.rentar.vehiculo;
-
-import rentar.vehiculo.*;
+package rentar.vehiculo;
 
 public class FurgonetaElectrica extends Vehiculo implements MotorElectrico{
     private int AutonomiaKM;

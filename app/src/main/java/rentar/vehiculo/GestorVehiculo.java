@@ -1,4 +1,5 @@
 package rentar.vehiculo;
+
 import java.util.ArrayList;
 
 public class GestorVehiculo {
