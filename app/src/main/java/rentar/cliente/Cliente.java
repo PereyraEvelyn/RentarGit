@@ -1,6 +1,5 @@
 package rentar.cliente;
 
-
 public class Cliente{
     private String dni;
     private String nombre;
@@ -40,14 +39,22 @@ public class Cliente{
     public String getNombre() {
         return nombre;
     }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+
+    public String getLicenciaConducir() {
+        return licenciaConducir;
+    }
     
-
-
-
-
-
-
-
 
 }
 

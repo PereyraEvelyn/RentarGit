@@ -1,5 +1,4 @@
-
-import rentar.vehiculo.*;
+package rentar.vehiculo;
 
 public class SuvElectrico extends Vehiculo implements MotorElectrico{
     private int AutonomiaKM;

@@ -1,7 +1,6 @@
 package rentar.vehiculo;
 import java.math.BigDecimal;
 
-import rentar.cliente.Cliente;
 
 public class ModeloVehiculo {
     private String modelo;
@@ -28,6 +27,11 @@ public class ModeloVehiculo {
         ModeloVehiculo modelo1 = (ModeloVehiculo) obj;
         return anio.equals(modelo1.anio) && modelo.equals(modelo1.modelo) && marca.equals(modelo1.marca);
         }
+
+    public BigDecimal getCosto_renta() {
+        return costo_renta;
+    }
     
+        
 
 }

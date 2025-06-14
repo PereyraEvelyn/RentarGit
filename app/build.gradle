@@ -3,7 +3,7 @@
  *
  * This generated file contains a sample Java application project to get you started.
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.10/userguide/building_java_projects.html in the Gradle documentation.
- */
+ 
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
@@ -33,3 +33,44 @@ application {
     // Define the main class for the application.
     mainClass = 'org.example.App'
 }
+
+
+*/
+
+
+
+plugins {
+    id 'java-library'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+/*dependencies {
+    // Usamos la dependencia específica para JUnit 4
+    testImplementation 'junit:junit:4.13.2'
+}*/
+
+dependencies {
+    // Use JUnit test framework.
+    //testImplementation libs.junit
+
+    testImplementation 'junit:junit:4.13.2'
+    // This dependency is used by the application.
+    implementation libs.guava
+}
+
+
+application {
+    mainClass = 'rentar.App'
+}
+
+tasks.named('test') {
+    useJUnit()
+}
+
+
+
+
