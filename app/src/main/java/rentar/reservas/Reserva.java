@@ -40,12 +40,18 @@ public class Reserva {
     }
 
 
+<<<<<<< HEAD
     
   
     // Getters y setters
+=======
+     
+>>>>>>> main
     public String getCodigoReserva() {
         return codigoReserva; 
     }
+    /* 
+    // Getters y setters
     public LocalDate getFechaInicio() {
      return fechaInicio; 
     }

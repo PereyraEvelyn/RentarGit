@@ -1,19 +1,4 @@
-/* package rentar.cliente;
 
-import static org.junit.Assert.assertEquals;
-
-import org.junit.Test;
-
-public class ClienteTest {
-    
-    @Test void testCreacionCliente() {
-        Cliente cliente1 = new Cliente("1234567", "samuel", "216738", "samu@gmail.com", "213213213");
-        assertEquals("1234567", cliente1.getDni());
-    }   
-
-
-}
-*/
 package rentar.cliente;
 
 import static org.junit.Assert.assertEquals;
