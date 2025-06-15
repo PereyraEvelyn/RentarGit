@@ -2,11 +2,18 @@ package rentar.mantenimiento;
 import java.util.ArrayList;
 import java.time.LocalDate;
 
+import rentar.cliente.Cliente;
+import rentar.vehiculo.*;
+
 public class GestorMantenimiento {
     private ArrayList<Mantenimiento> mantenimientos;
 
     public GestorMantenimiento() {
         setMantenimientos(new ArrayList<Mantenimiento>());
+    }
+
+    public ArrayList<Mantenimiento> getMantenimientos() {
+        return mantenimientos;
     }
 
     public void setMantenimientos(ArrayList<Mantenimiento> mantenimientos) {
@@ -17,23 +24,23 @@ public class GestorMantenimiento {
         this.mantenimientos.add(mantenimiento);
     }
 
-    public void eliminarMantenimiento(LocalDate fecha){
-        Mantenimiento mantenimientoEncontrado = getMantenimiento(fecha);
+    public void eliminarMantenimiento(LocalDate fecha, Vehiculo vehiculo){
+        Mantenimiento mantenimientoEncontrado = getMantenimiento(fecha, vehiculo);
         this.mantenimientos.remove(mantenimientoEncontrado);
     }
 
     public void modificarMantenimiento(Mantenimiento nuevoMantenimiento){
         Mantenimiento mantenimientoEncontrado;
-        mantenimientoEncontrado = getMantenimiento(nuevoMantenimiento.getFecha());
+        mantenimientoEncontrado = getMantenimiento(nuevoMantenimiento.getFecha(), nuevoMantenimiento.getVehiculo());
         mantenimientos.remove(mantenimientoEncontrado); 
         mantenimientos.add(nuevoMantenimiento);             
 	}
 
 
-    public Mantenimiento getMantenimiento(LocalDate fecha){
+    public Mantenimiento getMantenimiento(LocalDate fecha, Vehiculo vehiculo){
         Mantenimiento mantenimientoEncontrado = null;
         for (Mantenimiento var : mantenimientos) {
-            if (var.getFecha().equals(fecha)) {
+            if (var.getFecha().equals(fecha) && var.getVehiculo().equals(vehiculo)) {
                 mantenimientoEncontrado = var;
                 break;
             }

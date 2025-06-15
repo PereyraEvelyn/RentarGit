@@ -1,5 +1,42 @@
 package rentar.mantenimiento;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import rentar.cliente.Cliente;
+import rentar.vehiculo.AutoCombustion;
+import rentar.vehiculo.ModeloVehiculo;
+import rentar.vehiculo.Vehiculo.Estado;
+
 public class MantenimientoTest {
+    private ModeloVehiculo m;
+    private AutoCombustion b;
+    private Mantenimiento mante;
+    private Mantenimiento mante2;
+    @Before
+    public void setUp() {
+        m = new ModeloVehiculo("peugeot", "peugeot", 2010, new BigDecimal("100000"));
+        b = new AutoCombustion("3333", 3000, Estado.Disponible, m, 30, 10);
+        mante = new Mantenimiento(LocalDate.of(1999,5,24), "coso", b);
+        mante2= new Mantenimiento(LocalDate.of(1999,7,24), "coso", b);
+    }
     
+     @Test
+    public void testCreacionMantenimiento() {
+
+        assertEquals(LocalDate.of(1999, 5, 24), mante.getFecha());
+    }
+
+    @Test
+    public void testEquals() {
+        
+        assertFalse("Un mantenimiento es igual al otro si es del mismo vehiculo en la misma fecha", mante.equals(mante2));
+    }
 }

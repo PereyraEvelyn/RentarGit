@@ -1,6 +1,10 @@
 package rentar;
-
+import rentar.vehiculo.*;
+import rentar.vehiculo.Vehiculo.Estado;
 import rentar.cliente.Cliente;
+import java.math.BigDecimal;
+import rentar.mantenimiento.*;
+import java.time.LocalDate;
 
 public class App {
     public String getGreeting() {
@@ -9,10 +13,6 @@ public class App {
 
     public static void main(String[] args) {
         System.out.println(new App().getGreeting());
-
-        Cliente cliente1 = new Cliente("12345678", "Juan Perez", "LP12345", "juan.perez@email.com", "3834556677");;
-        
-        System.out.println(cliente1.getDni());
 
     }
 }
