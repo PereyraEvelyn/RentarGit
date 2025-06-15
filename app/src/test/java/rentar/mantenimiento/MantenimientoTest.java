@@ -2,15 +2,12 @@ package rentar.mantenimiento;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import rentar.cliente.Cliente;
 import rentar.vehiculo.AutoCombustion;
 import rentar.vehiculo.ModeloVehiculo;
 import rentar.vehiculo.Vehiculo.Estado;
@@ -28,7 +25,7 @@ public class MantenimientoTest {
         mante2= new Mantenimiento(LocalDate.of(1999,7,24), "coso", b);
     }
     
-     @Test
+    @Test
     public void testCreacionMantenimiento() {
 
         assertEquals(LocalDate.of(1999, 5, 24), mante.getFecha());

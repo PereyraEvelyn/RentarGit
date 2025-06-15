@@ -1,6 +1,5 @@
 package rentar.mantenimiento;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -12,7 +11,6 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
-import rentar.cliente.Cliente;
 import rentar.vehiculo.AutoCombustion;
 import rentar.vehiculo.ModeloVehiculo;
 import rentar.vehiculo.Vehiculo.Estado;

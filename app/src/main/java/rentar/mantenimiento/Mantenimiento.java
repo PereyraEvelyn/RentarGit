@@ -40,7 +40,7 @@ public class Mantenimiento {
             vehiculo.setEstado(Estado.Disponible);
         }
 
-         @Override
+        @Override
         public boolean equals(Object obj){
         if(this == obj){ 
             return true;
@@ -50,7 +50,7 @@ public class Mantenimiento {
         } 
         Mantenimiento mantenimiento = (Mantenimiento) obj; 
         return fecha.equals(mantenimiento.fecha) && vehiculo.equals(mantenimiento.vehiculo);
-    }
+        }
         
         
         
