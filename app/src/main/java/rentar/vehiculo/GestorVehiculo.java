@@ -22,11 +22,11 @@ public class GestorVehiculo {
     }
 
     public void eliminarVehiculo(String patente){
-        Vehiculo vehiculoEncontrado = getVehiculo(patente);
+        Vehiculo vehiculoEncontrado = encontrarVehiculo(patente);
         vehiculos.remove(vehiculoEncontrado);
     }
 
-     public Vehiculo getVehiculo(String patente){
+     public Vehiculo encontrarVehiculo(String patente){
         Vehiculo vehiculoEncontrado = null;
         for (Vehiculo var : vehiculos) {
             if (var.getPatente().equals(patente)) {
@@ -39,7 +39,7 @@ public class GestorVehiculo {
 
     public void modificarVehiculo(Vehiculo nuevoVehiculo){
         Vehiculo vehiculoEncontrado;
-        vehiculoEncontrado = getVehiculo(nuevoVehiculo.getPatente());
+        vehiculoEncontrado = encontrarVehiculo(nuevoVehiculo.getPatente());
         vehiculos.remove(vehiculoEncontrado); 
         vehiculos.add(nuevoVehiculo);               
 	}
@@ -70,8 +70,33 @@ public class GestorVehiculo {
     }
         
     public void egresar_mantenimiento(Vehiculo vehiculo, LocalDate fecha){
-        if(vehiculo.getGestorMantenimiento().getMantenimiento(fecha).getFecha_fin_mantenimiento().isEqual(fecha) || vehiculo.getGestorMantenimiento().getMantenimiento(fecha).getFecha_fin_mantenimiento().isAfter(fecha)){
+        if(fecha.isEqual(vehiculo.getGestorMantenimiento().getMantenimiento(fecha).getFecha_fin_mantenimiento())){
             vehiculo.setEstado(Estado.Disponible);
         }
-    } 
+    }
+
+    public ArrayList<Vehiculo> todosLosVehiculos() {
+        return vehiculos;
+    }
+
+    public ArrayList<Vehiculo> todosLosVehiculos(String tipo){
+        String obj = tipo;
+        ArrayList<Vehiculo> lista = new ArrayList<>();
+        for (Vehiculo vehiculo : vehiculos) {
+            if(vehiculo.getClass().getSimpleName().equals(obj)){
+                lista.add(vehiculo);
+            }
+        }
+        return lista;
+    }
+
+    public ArrayList<Mantenimiento> listaDeMantenimientosVehiculo(Vehiculo vehiculo){
+        return vehiculo.getGestorMantenimiento().getMantenimientos();
+    }
+
+
+
+
+    
+    
 }                                                                     

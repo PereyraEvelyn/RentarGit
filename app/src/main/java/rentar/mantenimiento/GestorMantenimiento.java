@@ -47,11 +47,8 @@ public class GestorMantenimiento {
         }
         return mantenimientoEncontrado;
     }
-    //faltan datos jaja
-    public void mostrarMantenimientos(){
-        for(Mantenimiento var : mantenimientos){
-            System.out.println(var.getDetalles_mantenimiento());
-        }
-    }
+
+    
+    
 
 }

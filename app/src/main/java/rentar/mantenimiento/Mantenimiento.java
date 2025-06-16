@@ -12,23 +12,14 @@ public class Mantenimiento {
         
         
         public Mantenimiento(LocalDate fecha_fin, String detalles_mantenimiento) {
-            fecha_fin_mantenimiento = fecha_fin;
+            this.fecha_fin_mantenimiento = fecha_fin;
             this.detalles_mantenimiento = detalles_mantenimiento;
         }
-
-
-        
-
-        
-
 
         public String getDetalles_mantenimiento() {
             return detalles_mantenimiento;
         }
 
-        public void setFecha_inicio_mantenimiento(LocalDate fecha_fin_mantenimiento) {
-            this.fecha_fin_mantenimiento = fecha_fin_mantenimiento;
-        }
 
 
         public LocalDate getFecha_fin_mantenimiento() {

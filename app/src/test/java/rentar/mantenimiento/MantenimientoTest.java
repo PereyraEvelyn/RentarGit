@@ -25,11 +25,11 @@ public class MantenimientoTest {
         mante2= new Mantenimiento(LocalDate.of(1999,5,24), "coso");
     }
     
-    /*@Test
+    @Test
     public void testCreacionMantenimiento() {
 
-        assertEquals(LocalDate.of(1999, 5, 24), mante.getFecha_fin_mantenimiento());
-    }*/
+        assertEquals(LocalDate.of(1999, 5, 30), mante.getFecha_fin_mantenimiento());
+    }
 
     @Test
     public void testEquals() {

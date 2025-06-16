@@ -12,7 +12,7 @@ public abstract class Vehiculo {
     private ModeloVehiculo modelo;
     private double kilometros_para_mantenimiento;
     private GestorMantenimiento gestorMantenimiento = new GestorMantenimiento();
-    private RegistroReservas registroreservas = new RegistroReservas();
+    
 
     public Vehiculo(String patente, double kilometraje, Estado estado, ModeloVehiculo modelo) {
         this.patente = patente;
@@ -42,9 +42,6 @@ public abstract class Vehiculo {
         return patente;
     }
 
-    public void setPatente(String patente) {
-        this.patente = patente;
-    }
 
     public double getKilometraje() {
         return kilometraje;
@@ -66,9 +63,7 @@ public abstract class Vehiculo {
         return modelo;
     }
 
-    public void setModelo(ModeloVehiculo modelo) {
-        this.modelo = modelo;
-    }
+
 
 
     public double getKilometros_para_mantenimiento() {
@@ -85,13 +80,6 @@ public abstract class Vehiculo {
     public GestorMantenimiento getGestorMantenimiento() {
         return gestorMantenimiento;
     }
-
-    
-
-    public RegistroReservas getRegistroreservas() {
-        return registroreservas;
-    }
-
-    
+   
     
 }

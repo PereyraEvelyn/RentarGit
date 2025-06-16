@@ -42,7 +42,7 @@ public class GestorMantenimientoTest {
     public void getMantenimientoTest() {
         gestor.agregarMantenimiento(mante);       
         Mantenimiento mantenimientoEncontrado = gestor.getMantenimiento(mante.getFecha_fin_mantenimiento());
-        assertNotNull("Se debería encontrar un cliente con un DNI existente.", mantenimientoEncontrado);
+        assertTrue(mantenimientoEncontrado.getFecha_fin_mantenimiento() == mante.getFecha_fin_mantenimiento());
     }
 
     @Test
