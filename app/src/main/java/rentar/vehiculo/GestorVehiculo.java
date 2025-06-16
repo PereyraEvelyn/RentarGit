@@ -1,6 +1,10 @@
 package rentar.vehiculo;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import rentar.mantenimiento.*;
+import rentar.vehiculo.Vehiculo.Estado;
 
 public class GestorVehiculo {
     private ArrayList<Vehiculo> vehiculos;
@@ -39,4 +43,35 @@ public class GestorVehiculo {
         vehiculos.remove(vehiculoEncontrado); 
         vehiculos.add(nuevoVehiculo);               
 	}
-}
+
+    public ArrayList<Vehiculo> vehiculosListosParaMantenimiento(){
+        ArrayList<Vehiculo> lista = new ArrayList<>(); 
+        for (Vehiculo vehiculo : vehiculos) {
+            if(vehiculo.getKilometraje()>= vehiculo.getKilometros_para_mantenimiento()){
+                lista.add(vehiculo);
+            }
+        }
+        return lista;
+    }
+
+    public ArrayList<Vehiculo> vehiculosEnMantenimiento(){
+        ArrayList<Vehiculo> lista = new ArrayList<>();
+        for (Vehiculo vehiculo : vehiculos) {
+            if(vehiculo.getEstado() == Estado.EnMantenimiento){
+                lista.add(vehiculo);
+            }
+        }
+        return lista;
+    }
+
+    public void ingresar_a_mantenimiento_vehiculos(Vehiculo vehiculo, String detalle_mantenimiento, LocalDate fecha){
+        vehiculo.getGestorMantenimiento().agregarMantenimiento(new Mantenimiento(fecha, detalle_mantenimiento));
+        vehiculo.setEstado(Estado.EnMantenimiento);
+    }
+        
+    public void egresar_mantenimiento(Vehiculo vehiculo, LocalDate fecha){
+        if(vehiculo.getGestorMantenimiento().getMantenimiento(fecha).getFecha_fin_mantenimiento().isEqual(fecha) || vehiculo.getGestorMantenimiento().getMantenimiento(fecha).getFecha_fin_mantenimiento().isAfter(fecha)){
+            vehiculo.setEstado(Estado.Disponible);
+        }
+    } 
+}                                                                     

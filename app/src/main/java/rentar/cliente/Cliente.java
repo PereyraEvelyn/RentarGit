@@ -54,14 +54,6 @@ public class Cliente{
     public String getLicenciaConducir() {
         return licenciaConducir;
     }
-    
-    
-
-
-
-
-
-
 
 }
 

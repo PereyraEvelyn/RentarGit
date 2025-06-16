@@ -1,10 +1,19 @@
 package rentar.vehiculo;
 
+import java.math.BigDecimal;
+
+import rentar.mantenimiento.GestorMantenimiento;
+import rentar.reservas.RegistroReservas;
+
 public abstract class Vehiculo {
     private String patente;
     private double kilometraje;
     private Estado estado;
     private ModeloVehiculo modelo;
+    private double kilometros_para_mantenimiento;
+    private BigDecimal costo_alquiler_por_dia;
+    private GestorMantenimiento gestorMantenimiento = new GestorMantenimiento();
+    private RegistroReservas registroreservas = new RegistroReservas();
 
     public Vehiculo(String patente, double kilometraje, Estado estado, ModeloVehiculo modelo) {
         this.patente = patente;
@@ -62,5 +71,37 @@ public abstract class Vehiculo {
         this.modelo = modelo;
     }
 
+
+    public double getKilometros_para_mantenimiento() {
+        return kilometros_para_mantenimiento;
+    }
+
+
+    public void setKilometros_para_mantenimiento(double kilometros_para_mantenimiento) {
+        this.kilometros_para_mantenimiento = kilometros_para_mantenimiento;
+    }
+
+
+    public BigDecimal getCosto_alquiler_por_dia() {
+        return costo_alquiler_por_dia;
+    }
+
+
+    public void setCosto_alquiler_por_dia(BigDecimal costo_alquiler) {
+        this.costo_alquiler_por_dia = costo_alquiler;
+    }
+
+
+    public GestorMantenimiento getGestorMantenimiento() {
+        return gestorMantenimiento;
+    }
+
+    
+
+    public RegistroReservas getRegistroreservas() {
+        return registroreservas;
+    }
+
+    
     
 }

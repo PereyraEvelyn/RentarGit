@@ -1,53 +1,55 @@
 package rentar.cliente;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class RegistroClientes {
-    private ArrayList<Cliente> clientes;
+    private final List<Cliente> clientes;
 
      public RegistroClientes(){
-        this.clientes = new ArrayList<Cliente>();
+        this.clientes = new ArrayList<>();
      }
 
-    public ArrayList<Cliente> getClientes() {
-        return clientes;
+
+   public List<Cliente> consultarTodosLosClientes() {
+        return Collections.unmodifiableList(clientes);
     }
 
-     public void agregarCliente(Cliente cliente){
+  
+     public void agregarCliente(Cliente cliente) throws ClienteExistenteException {
+       if (this.clientes.contains(cliente)) {
+            throw new ClienteExistenteException("ERROR: El cliente con DNI " + cliente.getDni() + " ya está registrado.");
+        }
         this.clientes.add(cliente);
     }
 
-    public void eliminarCliente(String dni){
-        Cliente clienteEncontrado = getCliente(dni);
-        clientes.remove(clienteEncontrado);
+   
+    public void eliminarCliente(Cliente cliente) throws ClienteInexistenteException {
+        boolean fueEliminado = clientes.remove(cliente);
+        if (!fueEliminado) {
+            throw new ClienteInexistenteException("ERROR: No se puede eliminar. El cliente con DNI " + cliente.getDni() + " no existe.");
+        }
     }
 
-    public Cliente getCliente(String dni){
-        Cliente clienteEncontrado = null;
+    public Cliente getCliente(String dni) throws ClienteInexistenteException {
         for (Cliente aux : clientes) {
             if (aux.getDni().equals(dni)) {
-                clienteEncontrado = aux;
-                break;
+                return aux;
             }
         }
-        if (clienteEncontrado == null) {
-            System.out.println("No se encontro el cliente");;
-        }    
-        return clienteEncontrado;
+        throw new ClienteInexistenteException("ERROR: No se encontró un cliente con el DNI " + dni);
     }
 
 
-     public void modificarDatosCliente(Cliente nuevoCliente) {
-        Cliente clienteEncontrado;
-        clienteEncontrado = getCliente(nuevoCliente.getDni());
-        clientes.remove(clienteEncontrado); 
-        clientes.add(nuevoCliente);               
-	}
-    
-
-}
+      public void modificarDatosCliente(Cliente clienteActualizado) throws ClienteInexistenteException {
+        Cliente clienteExistente = getCliente(clienteActualizado.getDni());
+        this.clientes.remove(clienteExistente);
+        this.clientes.add(clienteActualizado);
+    }
 
    
+}
 
     
 

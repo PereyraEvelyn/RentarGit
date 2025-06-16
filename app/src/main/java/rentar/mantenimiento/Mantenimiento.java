@@ -6,39 +6,40 @@ import rentar.vehiculo.*;
 import rentar.vehiculo.Vehiculo.Estado;
 
 
-public class Mantenimiento {    
-        private LocalDate fecha;
+public class Mantenimiento {
+        private LocalDate fecha_fin_mantenimiento;
         private String detalles_mantenimiento;
-        private Vehiculo vehiculo;
         
         
-        public Mantenimiento(LocalDate fecha, String detalles_mantenimiento, Vehiculo vehiculo) {
-            this.fecha = fecha;
+        public Mantenimiento(LocalDate fecha_fin, String detalles_mantenimiento) {
+            fecha_fin_mantenimiento = fecha_fin;
             this.detalles_mantenimiento = detalles_mantenimiento;
-            this.vehiculo = vehiculo;
         }
 
 
-        public LocalDate getFecha() {
-            return fecha;
-        }
+        
 
-        public Vehiculo getVehiculo(){
-            return vehiculo;
-        }
+        
 
 
         public String getDetalles_mantenimiento() {
             return detalles_mantenimiento;
         }
 
-        public void mantenimientoAuto() {
-            vehiculo.setEstado(Estado.EnMantenimiento);
+        public void setFecha_inicio_mantenimiento(LocalDate fecha_fin_mantenimiento) {
+            this.fecha_fin_mantenimiento = fecha_fin_mantenimiento;
         }
 
-        public void finMantenimiento(){
-            vehiculo.setEstado(Estado.Disponible);
+
+        public LocalDate getFecha_fin_mantenimiento() {
+            return fecha_fin_mantenimiento;
         }
+
+
+        public void setFecha_fin_mantenimiento(LocalDate fecha_fin_mantenimiento) {
+            this.fecha_fin_mantenimiento = fecha_fin_mantenimiento;
+        }
+
 
         @Override
         public boolean equals(Object obj){
@@ -49,7 +50,7 @@ public class Mantenimiento {
             return false;
         } 
         Mantenimiento mantenimiento = (Mantenimiento) obj; 
-        return fecha.equals(mantenimiento.fecha) && vehiculo.equals(mantenimiento.vehiculo);
+        return fecha_fin_mantenimiento.equals(mantenimiento.fecha_fin_mantenimiento);
         }
         
         

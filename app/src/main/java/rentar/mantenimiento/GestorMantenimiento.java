@@ -24,23 +24,23 @@ public class GestorMantenimiento {
         this.mantenimientos.add(mantenimiento);
     }
 
-    public void eliminarMantenimiento(LocalDate fecha, Vehiculo vehiculo){
-        Mantenimiento mantenimientoEncontrado = getMantenimiento(fecha, vehiculo);
+    public void eliminarMantenimiento(LocalDate fecha){
+        Mantenimiento mantenimientoEncontrado = getMantenimiento(fecha);
         this.mantenimientos.remove(mantenimientoEncontrado);
     }
 
     public void modificarMantenimiento(Mantenimiento nuevoMantenimiento){
         Mantenimiento mantenimientoEncontrado;
-        mantenimientoEncontrado = getMantenimiento(nuevoMantenimiento.getFecha(), nuevoMantenimiento.getVehiculo());
+        mantenimientoEncontrado = getMantenimiento(nuevoMantenimiento.getFecha_fin_mantenimiento());
         mantenimientos.remove(mantenimientoEncontrado); 
         mantenimientos.add(nuevoMantenimiento);             
 	}
 
 
-    public Mantenimiento getMantenimiento(LocalDate fecha, Vehiculo vehiculo){
+    public Mantenimiento getMantenimiento(LocalDate fecha){
         Mantenimiento mantenimientoEncontrado = null;
         for (Mantenimiento var : mantenimientos) {
-            if (var.getFecha().equals(fecha) && var.getVehiculo().equals(vehiculo)) {
+            if (var.getFecha_fin_mantenimiento().equals(fecha)) {
                 mantenimientoEncontrado = var;
                 break;
             }

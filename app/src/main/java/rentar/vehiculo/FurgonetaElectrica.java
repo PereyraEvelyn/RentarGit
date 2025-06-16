@@ -1,6 +1,6 @@
 package rentar.vehiculo;
 
-public class FurgonetaElectrica extends Vehiculo implements MotorElectrico{
+public class FurgonetaElectrica extends Vehiculo implements MotorElectrico, Furgoneta{
     private int AutonomiaKM;
     private int TiempoDeCarga;
 
@@ -8,6 +8,8 @@ public class FurgonetaElectrica extends Vehiculo implements MotorElectrico{
         super(patente, kilometraje, estado, modelo);
         AutonomiaKM = autonomiaKM;
         TiempoDeCarga = tiempoDeCarga;
+        super.setKilometros_para_mantenimiento(kilometros_a_realizar + kilometraje);
+        super.setCosto_alquiler_por_dia(costo_alquiler_por_dia_auto);
     }
 
     public int getAutonomiaKM() {
