@@ -1,5 +1,6 @@
 package rentar.vehiculo;
 
+import java.math.BigDecimal;
 
 public class SuvCombustion extends Vehiculo implements MotorACombustion, Suv{
      private double consumoCombustible;
@@ -10,7 +11,6 @@ public class SuvCombustion extends Vehiculo implements MotorACombustion, Suv{
         this.consumoCombustible = consumoCombustible;
         NivelEmision = nivelEmision;
         super.setKilometros_para_mantenimiento(kilometros_a_realizar + kilometraje);
-        super.setCosto_alquiler_por_dia(costo_alquiler_por_dia_auto);
      }
 
      public double getConsumoCombustible() {
@@ -21,6 +21,9 @@ public class SuvCombustion extends Vehiculo implements MotorACombustion, Suv{
          return NivelEmision;
      }
 
-     
+      @Override
+    public BigDecimal aplicarDescuentoPromocional(BigDecimal costoBase) {
+        return MotorACombustion.super.aplicarDescuentoPromocional(costoBase);
+    }
      
 }

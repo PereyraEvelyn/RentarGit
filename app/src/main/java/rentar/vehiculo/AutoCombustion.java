@@ -11,7 +11,6 @@ public class AutoCombustion extends Vehiculo implements MotorACombustion, Auto {
         this.consumoCombustible = consumoCombustible;
         NivelEmision = nivelEmision;
         super.setKilometros_para_mantenimiento(kilometros_a_realizar + kilometraje);
-        super.setCosto_alquiler_por_dia(costo_alquiler_por_dia_auto);
     }
 
     public double getConsumoCombustible() {
@@ -22,6 +21,9 @@ public class AutoCombustion extends Vehiculo implements MotorACombustion, Auto {
         return NivelEmision;
     }
 
-    
+     @Override
+    public BigDecimal aplicarDescuentoPromocional(BigDecimal costoBase) {
+        return MotorACombustion.super.aplicarDescuentoPromocional(costoBase);
+    }
     
 }

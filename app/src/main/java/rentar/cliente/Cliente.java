@@ -1,11 +1,14 @@
 package rentar.cliente;
 
+import rentar.reservas.RegistroReservas;
+
 public class Cliente{
     private String dni;
     private String nombre;
     private String email;
     private String telefono;
     private String licenciaConducir;
+    private RegistroReservas reservas;
 
 
     
@@ -15,6 +18,7 @@ public class Cliente{
         this.licenciaConducir = licenciaConducir;
         this.email= email;
         this.telefono = telefono;
+        this.reservas = new RegistroReservas();
         }
         
 
@@ -53,6 +57,10 @@ public class Cliente{
 
     public String getLicenciaConducir() {
         return licenciaConducir;
+    }
+
+    public RegistroReservas getReservas() {
+        return reservas;
     }
 
 }

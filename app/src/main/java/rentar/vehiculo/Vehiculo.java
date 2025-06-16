@@ -11,7 +11,6 @@ public abstract class Vehiculo {
     private Estado estado;
     private ModeloVehiculo modelo;
     private double kilometros_para_mantenimiento;
-    private BigDecimal costo_alquiler_por_dia;
     private GestorMantenimiento gestorMantenimiento = new GestorMantenimiento();
     private RegistroReservas registroreservas = new RegistroReservas();
 
@@ -81,17 +80,8 @@ public abstract class Vehiculo {
         this.kilometros_para_mantenimiento = kilometros_para_mantenimiento;
     }
 
-
-    public BigDecimal getCosto_alquiler_por_dia() {
-        return costo_alquiler_por_dia;
-    }
-
-
-    public void setCosto_alquiler_por_dia(BigDecimal costo_alquiler) {
-        this.costo_alquiler_por_dia = costo_alquiler;
-    }
-
-
+    public abstract BigDecimal aplicarDescuentoPromocional(BigDecimal costoBase);
+    
     public GestorMantenimiento getGestorMantenimiento() {
         return gestorMantenimiento;
     }

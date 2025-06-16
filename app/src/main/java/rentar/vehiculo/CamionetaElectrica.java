@@ -1,5 +1,6 @@
 package rentar.vehiculo;
 
+import java.math.BigDecimal;
 
 public class CamionetaElectrica extends Vehiculo implements MotorElectrico, Camioneta{
     private int AutonomiaKM;
@@ -11,7 +12,6 @@ public class CamionetaElectrica extends Vehiculo implements MotorElectrico, Cami
         AutonomiaKM = autonomiaKM;
         TiempoDeCarga = tiempoDeCarga;
         super.setKilometros_para_mantenimiento(kilometros_a_realizar + kilometraje);
-        super.setCosto_alquiler_por_dia(costo_alquiler_por_dia_auto);
     }
 
     public int getAutonomiaKM() {
@@ -22,6 +22,10 @@ public class CamionetaElectrica extends Vehiculo implements MotorElectrico, Cami
         return TiempoDeCarga;
     }
     
+   @Override
+    public BigDecimal aplicarDescuentoPromocional(BigDecimal costoBase) {
+        return MotorElectrico.super.aplicarDescuentoPromocional(costoBase);
+    }
     
     
 }

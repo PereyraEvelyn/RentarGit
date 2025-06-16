@@ -1,5 +1,7 @@
 package rentar.vehiculo;
 
+import java.math.BigDecimal;
+
 public class FurgonetaCombustion extends Vehiculo implements MotorACombustion, Furgoneta{
      private double consumoCombustible;
      private double NivelEmision;
@@ -9,7 +11,6 @@ public class FurgonetaCombustion extends Vehiculo implements MotorACombustion, F
         this.consumoCombustible = consumoCombustible;
         NivelEmision = nivelEmision;
         super.setKilometros_para_mantenimiento(kilometros_a_realizar + kilometraje);
-        super.setCosto_alquiler_por_dia(costo_alquiler_por_dia_auto);
      }
 
      public double getConsumoCombustible() {
@@ -20,7 +21,10 @@ public class FurgonetaCombustion extends Vehiculo implements MotorACombustion, F
          return NivelEmision;
      }
 
-     
+    @Override
+    public BigDecimal aplicarDescuentoPromocional(BigDecimal costoBase) {
+        return MotorACombustion.super.aplicarDescuentoPromocional(costoBase);
+    }
     
 
 }

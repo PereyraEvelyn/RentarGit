@@ -1,10 +1,8 @@
 package rentar.reservas;
 import java.math.BigDecimal;
-import java.util.Objects;
 
-import rentar.mantenimiento.Mantenimiento;
 
-public class Accesorio implements Extra{
+public class Accesorio implements ConceptoExtra{
     private String nombre_accesorio;
     private String descripcion_accessorio;
     private BigDecimal costo_accesorio;
@@ -35,8 +33,9 @@ public class Accesorio implements Extra{
         return descripcion_accessorio;
     }
 
-    public BigDecimal getCosto_accesorio() {
-        return costo_accesorio;
+     @Override
+    public BigDecimal getCosto() {
+        return this.costo_accesorio;
     }
 
     @Override
